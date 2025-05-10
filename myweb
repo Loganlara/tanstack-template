@@ -1,0 +1,87 @@
+<!DOCTYPE html><html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>100 Motivational Thoughts</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      background: linear-gradient(135deg, #e0f7fa, #fff);
+      text-align: center;
+      padding: 20px;
+    }
+    .container {
+      max-width: 600px;
+      padding: 20px;
+      background: #fff;
+      border-radius: 20px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+    }
+    .quote {
+      font-size: 1.5rem;
+      margin-bottom: 20px;
+      transition: all 0.4s ease;
+    }
+    .next-btn {
+      background-color: #00796b;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 10px;
+      font-size: 1rem;
+      cursor: pointer;
+    }
+    .next-btn:hover {
+      background-color: #004d40;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div id="quote" class="quote"></div>
+    <button class="next-btn" onclick="showNextQuote()">Next</button>
+  </div>  <script>
+    const quotes = [
+      "Discipline is the bridge between goals and accomplishment.",
+      "Success doesn't come from what you do occasionally, it comes from what you do consistently.",
+      "Don’t watch the clock; do what it does. Keep going.",
+      "Dream big. Start small. Act now.",
+      "Your future is created by what you do today, not tomorrow.",
+      // Add 95 more quotes here...
+    ];
+
+    const fonts = [
+      "'Courier New', Courier, monospace",
+      "'Georgia', serif",
+      "'Lucida Console', Monaco, monospace",
+      "'Palatino Linotype', 'Book Antiqua', Palatino, serif",
+      "'Trebuchet MS', sans-serif",
+      "'Verdana', sans-serif",
+      "'Impact', Charcoal, sans-serif"
+    ];
+
+    let currentIndex = 0;
+
+    function showNextQuote() {
+      const quoteEl = document.getElementById('quote');
+      const quote = quotes[currentIndex];
+      const font = fonts[Math.floor(Math.random() * fonts.length)];
+      const color = '#' + Math.floor(Math.random()*16777215).toString(16);
+
+      quoteEl.textContent = quote;
+      quoteEl.style.fontFamily = font;
+      quoteEl.style.color = color;
+      quoteEl.style.fontWeight = Math.random() > 0.5 ? 'bold' : 'normal';
+
+      currentIndex = (currentIndex + 1) % quotes.length;
+    }
+
+    showNextQuote();
+  </script></body>
+</html>
